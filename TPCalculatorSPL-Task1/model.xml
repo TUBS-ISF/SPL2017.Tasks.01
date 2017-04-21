@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and abstract="true" mandatory="true" name="TPCalculatorSPL">
+				<description>
+					Calculator software product line. 
+					Designed for a variaty of users.
+				</description>
+				<description>
+					Calculator software product line. 
+					Designed for a variaty of users.
+				</description>
+				<and abstract="true" mandatory="true" name="Operations">
+					<description>
+						Operations the user can choose from.
+					</description>
+					<description>
+						Operations the user can choose from.
+					</description>
+					<or abstract="true" name="Base">
+						<description>
+							Basic Operations supported by a common calculator.
+						</description>
+						<description>
+							Basic Operations supported by a common calculator.
+						</description>
+						<feature mandatory="true" name="Addition">
+							<description>
+								Addition: 
+								Summ up two Numbers.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Subtraction">
+							<description>
+								Subtraction: 
+								subtract two numbers.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Multiplication">
+							<description>
+								Multiplication: 
+								Multiplicate two Numbers.
+							</description>
+						</feature>
+						<feature mandatory="true" name="Division">
+							<description>
+								Division: 
+								Divide two Numbers. 
+								If the divisor is 0 the solution is 0.
+							</description>
+						</feature>
+					</or>
+					<or abstract="true" name="advanced">
+						<description>
+							Advanced operation not every user needs.
+							For example: Roots, Potencies, Angleoperations, Statisticaloperations.
+						</description>
+						<description>
+							Advanced operation not every user needs.
+							For example: Roots, Potencies, Angleoperations, Statisticaloperations.
+						</description>
+						<or abstract="true" mandatory="true" name="Roots">
+							<description>
+								Operations to take the root of n-th degree from a given Number.
+							</description>
+							<description>
+								Operations to take the root of n-th degree from a given Number.
+							</description>
+							<feature mandatory="true" name="SqrR">
+								<description>
+									SquareRoot: 
+									Take the squareroot of a given Number.
+									If a negtive Value is given the solution wil be 0.
+								</description>
+							</feature>
+							<feature abstract="true" mandatory="true" name="Root3">
+								<description>
+									Root3:
+									Take the root of 3rd degree of a given Number. 
+									If the given Number is negative the result is 0.
+								</description>
+							</feature>
+						</or>
+						<or abstract="true" mandatory="true" name="Potencies">
+							<description>
+								Build the n-th power of a given Number.
+							</description>
+							<description>
+								Build the n-th power of a given Number.
+							</description>
+							<feature mandatory="true" name="P2O">
+								<description>
+									Power2Of:
+									Buld the second power of a given Number.
+								</description>
+							</feature>
+							<feature abstract="true" mandatory="true" name="P3O">
+								<description>
+									Power3Of:
+									Build the third power a given number.
+								</description>
+							</feature>
+							<feature abstract="true" mandatory="true" name="P4O">
+								<description>
+									Power4Of:
+									Build the fourth power of a given number.
+								</description>
+							</feature>
+						</or>
+						<or abstract="true" mandatory="true" name="AngleOps">
+							<description>
+								Provide at least one of the basic angle operations for the user. 
+								Supported Operations: Sinus, Cosinus, Tangent.
+							</description>
+							<description>
+								Provide at least one of the basic angle operations for the user. 
+								Supported Operations: Sinus, Cosinus, Tangent.
+							</description>
+							<feature mandatory="true" name="Sin">
+								<description>
+									Sinus: 
+									Calculate the sinus of a given angle.
+									Results in the degree system.
+								</description>
+							</feature>
+							<feature mandatory="true" name="Cos">
+								<description>
+									Cosinus: 
+									Calculate the Cosinus of a given angle. 
+									Results are in  the degree system.
+								</description>
+							</feature>
+							<feature mandatory="true" name="Tan">
+								<description>
+									Tangent: 
+									Calculate the tangent of a given angle.
+									Results are in the degree system.
+								</description>
+							</feature>
+						</or>
+					</or>
+					<or abstract="true" name="Statistical">
+						<description>
+							Provide statistical operations experienced users.
+							Provided operations: Standard Deviation, Mean.
+						</description>
+						<description>
+							Provide statistical operations experienced users.
+							Provided operations: Standard Deviation, Mean.
+						</description>
+						<feature abstract="true" mandatory="true" name="StD">
+							<description>
+								Standard Deviation: 
+								Calculate the standard deviation of a given dataset. 
+								If no Dataset is given, the output is 0.
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="Mean">
+							<description>
+								Mean: 
+								Calculates the mean of a given Dataset. 
+								If no Dataset is given the out is 0.
+							</description>
+						</feature>
+					</or>
+				</and>
+				<alt mandatory="true" name="UI">
+					<description>
+						UserInterface:
+						Provide interaction possibilities for the user.
+					</description>
+					<description>
+						UserInterface:
+						Provide interaction possibilities for the user.
+					</description>
+					<and abstract="true" mandatory="true" name="GUI">
+						<description>
+							Grafical User Interface:
+							Provide a grafical user interface to interact with. 
+							The grafical user interface must support all operations the user wants to perform.
+							Basic number keys 0 to 9 must be provided.
+							A display to show the results must be given.
+						</description>
+						<description>
+							Grafical User Interface:
+							Provide a grafical user interface to interact with. 
+							The grafical user interface must support all operations the user wants to perform.
+							Basic number keys 0 to 9 must be provided.
+							A display to show the results must be given.
+						</description>
+						<alt abstract="true" name="ColorSchemes">
+							<description>
+								Provide different color scheme options.
+								the user can personalize the application with these schemes.
+							</description>
+							<description>
+								Provide different color scheme options.
+								the user can personalize the application with these schemes.
+							</description>
+							<feature mandatory="true" name="Blue">
+								<description>
+									Provide an blue color scheme for the user interface.
+								</description>
+							</feature>
+							<feature mandatory="true" name="Black">
+								<description>
+									Provide an black color scheme for the user interface.
+								</description>
+							</feature>
+							<feature mandatory="true" name="Default">
+								<description>
+									Provide the default color scheme for the user interface.
+								</description>
+							</feature>
+						</alt>
+						<and abstract="true" mandatory="true" name="Keys">
+							<description>
+								The basic numbers 0 to 9 are given as buttons to press. 
+								An equals button to show the result of an equation is given.
+								The keydisplay adjust dynamically to the chosen operations.
+							</description>
+							<description>
+								The basic numbers 0 to 9 are given as buttons to press. 
+								An equals button to show the result of an equation is given.
+								The keydisplay adjust dynamically to the chosen operations.
+							</description>
+							<or abstract="true" name="SC">
+								<description>
+									SpecialConstants: 
+									Provide quick access to some of most used cnstants in math an physics.
+								</description>
+								<description>
+									SpecialConstants: 
+									Provide quick access to some of most used cnstants in math an physics.
+								</description>
+								<feature mandatory="true" name="Pi">
+									<description>
+										Pi: 
+										Key to how and use pi as 3.141592.
+									</description>
+								</feature>
+								<feature mandatory="true" name="EN">
+									<description>
+										EulerNumber:
+										Key to show and use the euler number as 2,71828.
+									</description>
+								</feature>
+								<feature abstract="true" mandatory="true" name="SOL">
+									<description>
+										SpeedOfLight: 
+										Key to show and use the speed of light as 299792458.
+									</description>
+								</feature>
+								<feature abstract="true" mandatory="true" name="SOS">
+									<description>
+										SpeedOfSound:
+										Key to show and use the speed of sound as 340.
+									</description>
+								</feature>
+								<feature abstract="true" mandatory="true" name="GC">
+									<description>
+										GravitationalConstant:
+										Key to show and use the gracitational constant as 6.674 * 10^-11.
+									</description>
+								</feature>
+							</or>
+							<feature mandatory="true" name="OpKey">
+								<description>
+									OperationKey:
+									For every chosen operation the operation key must be provided.
+									For example: 
+									If addition is by the user, an button "+" will be provided in the Gui.
+								</description>
+							</feature>
+							<and mandatory="true" name="BaseKeys">
+								<description>
+									Provide the basic keys calculator.
+								</description>
+								<description>
+									Provide the basic keys calculator.
+								</description>
+								<feature mandatory="true" name="Numbers">
+									<description>
+										The Numbers from 0 to 9
+									</description>
+								</feature>
+								<feature mandatory="true" name="Equals">
+									<description>
+										Button to get the result of an equation.
+									</description>
+								</feature>
+								<feature mandatory="true" name="Del">
+									<description>
+										Delete:
+										Button to delete the parts of the enter equation.
+									</description>
+								</feature>
+								<feature mandatory="true" name="AC">
+									<description>
+										AllClear:
+										Button to clear the whole display.
+									</description>
+								</feature>
+								<feature mandatory="true" name="LBr">
+									<description>
+										LeftBrackets:
+										Button for left brackets.
+									</description>
+								</feature>
+								<feature mandatory="true" name="RBr">
+									<description>
+										RigthtBrackets:
+										Button for right brackets.
+									</description>
+								</feature>
+							</and>
+						</and>
+						<feature mandatory="true" name="Display">
+							<description>
+								Provide a Display to show entered equations and calculated
+								results.
+							</description>
+						</feature>
+					</and>
+					<feature abstract="true" mandatory="true" name="CLI">
+						<description>
+							Command Line Interface
+							Provide an comand line interface for the interaction between
+							user and system.
+						</description>
+					</feature>
+				</alt>
+				<and abstract="true" name="CH">
+					<description>
+						CalculationHistory:
+						Provide a list of previous equations with their corresponding
+						results.
+					</description>
+					<description>
+						CalculationHistory:
+						Provide a list of previous equations with their corresponding
+						results.
+					</description>
+					<or abstract="true" name="EH">
+						<description>
+							ExportHistorie:
+							Provide an export possibility for previous calculations. 
+							Different file formats like xml, plain text and csv are supported.
+							The user is free to choose the file format and the destination
+							of the saved file.
+						</description>
+						<description>
+							ExportHistorie:
+							Provide an export possibility for previous calculations. 
+							Different file formats like xml, plain text and csv are supported.
+							The user is free to choose the file format and the destination
+							of the saved file.
+						</description>
+						<feature abstract="true" mandatory="true" name="XmlOut">
+							<description>
+								Support the xml file format as export file format.
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="CsvOut">
+							<description>
+								Support the csv file format as export file format.
+							</description>
+						</feature>
+						<feature abstract="true" mandatory="true" name="PTOut">
+							<description>
+								PlainTextOut:
+								Support the xml file format as export file format.
+							</description>
+						</feature>
+					</or>
+				</and>
+				<or abstract="true" name="IDS">
+					<description>
+						Possibility to import a data set for calculations. 
+						Supported file formats are xml and csv file. 
+						The user can choose the path where the import file
+						is located.
+					</description>
+					<description>
+						Possibility to import a data set for calculations. 
+						Supported file formats are xml and csv file. 
+						The user can choose the path where the import file
+						is located.
+					</description>
+					<feature abstract="true" mandatory="true" name="XmlIn">
+						<description>
+							Xml files are supported as input file format.
+						</description>
+					</feature>
+					<feature abstract="true" mandatory="true" name="CsvIn">
+						<description>
+							Csv files are supported as input file format.
+						</description>
+					</feature>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>IDS</var>
+					<var>Statistical</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
