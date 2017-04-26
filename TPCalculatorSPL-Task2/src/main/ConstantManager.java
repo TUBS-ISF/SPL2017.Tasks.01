@@ -1,46 +1,41 @@
 package main;
 
+import java.util.HashMap;
+
 public class ConstantManager {
 	
-	private final double PI = 3.1415926; 
-	private final double EN = 2.71828;
-	private final double SOS = 340.29;
-	private final double SOL = 299792458;
-	private final double GC = 0.000000000067408;
+	private final String PI = "3.1415926"; 
+	private final String EN = "2.71828";
+	private final String SOS = "340.29";
+	private final String SOL = "299792458";
+	private final String GC = "0.000000000067408";
 	
-	public final static ConstantManager INSTANCE = new ConstantManager(); 
+	public static ConstantManager INSTANCE = new ConstantManager();
+	public final HashMap<String, String> map = new HashMap<String, String>();
 	
 	private ConstantManager(){
 		super(); 
+		map.put("PI", PI);
+		map.put("EN", EN);
+		map.put("SOS", SOS);
+		map.put("SOL", SOL);
+		map.put("GC", GC);
 	}
 	
 	public static ConstantManager getInstance(){
+		if(INSTANCE == null){
+			INSTANCE = new ConstantManager();
+		}
 		return INSTANCE; 
 	}
-
-	public double getPI() {
-		return PI;
+	
+	public HashMap<String, String> getMap(){
+		return map;
 	}
+	
+	
 
-	public double getEN() {
-		return EN;
-	}
-
-	public double getSOS() {
-		return SOS;
-	}
-
-	public double getSOL() {
-		return SOL;
-	}
-
-	public double getGC() {
-		return GC;
-	}
-
-	public ConstantManager getINSTANCE() {
-		return INSTANCE;
-	}
+	
 	
 	
 	

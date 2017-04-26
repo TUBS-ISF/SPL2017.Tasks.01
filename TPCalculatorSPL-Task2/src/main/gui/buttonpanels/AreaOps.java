@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import main.gui.buttonlistener.OperationButtonListener;
+import main.gui.buttonlistener.OneParamOpsListener;
 
 public class AreaOps extends JPanel{
 	
@@ -30,9 +30,9 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void setButtonListener(){
-		AOR.addActionListener(new OperationButtonListener("AoR"));
-		AOC.addActionListener(new OperationButtonListener("AoC"));
-		AOT.addActionListener(new OperationButtonListener("AoT"));
+		AOR.addActionListener(new OneParamOpsListener("AoR"));
+		AOC.addActionListener(new OneParamOpsListener("AoC"));
+		AOT.addActionListener(new OneParamOpsListener("AoT"));
 	}
 
 }

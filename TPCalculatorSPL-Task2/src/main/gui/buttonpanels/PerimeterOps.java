@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import main.gui.buttonlistener.OperationButtonListener;
+import main.gui.buttonlistener.OneParamOpsListener;
 
 public class PerimeterOps extends JPanel{
 	
@@ -29,9 +29,9 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void setButtonListener(){
-		POR.addActionListener(new OperationButtonListener("PoR"));
-		POC.addActionListener(new OperationButtonListener("PoC"));
-		POT.addActionListener(new OperationButtonListener("PoT"));
+		POR.addActionListener(new OneParamOpsListener("PoR"));
+		POC.addActionListener(new OneParamOpsListener("PoC"));
+		POT.addActionListener(new OneParamOpsListener("PoT"));
 	}
 
 }

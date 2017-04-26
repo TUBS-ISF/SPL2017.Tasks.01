@@ -16,7 +16,7 @@ public class TPCalculatorSPL {
 	public TPCalculatorSPL(){
 		super();
 		if (PropertyManager.getProperty("GUI")) {
-			GuiController gc = new GuiController();
+			GuiController.getInstance();
 		}
 		if(PropertyManager.getProperty("CLI")){
 			CommandLine cli = new CommandLine(); 

@@ -1,82 +1,46 @@
 package main.gui;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.TextField;
-import java.util.Vector;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
-import main.gui.buttonpanels.AreaOps;
-import main.gui.buttonpanels.BaseButtons;
-import main.gui.buttonpanels.BaseOperation;
-import main.gui.buttonpanels.MathConstants;
-import main.gui.buttonpanels.PerimeterOps;
-import main.gui.buttonpanels.PhysicalConstants;
-import main.gui.buttonpanels.PowerOps;
-import main.gui.buttonpanels.RootOps;
-
 /**
  * TODO description
  */
 public class GuiController {
-	private JFrame mainFrame = new JFrame("tpCalcualtorSPL"); 
-	private TextField inputField = new TextField();
-	private JPanel keyPanel = new JPanel();
 	
+	public static GuiController instance = null; 
+	private MainFrame mainFrame = null; 
 	
-	public GuiController(){
-		initMainFrame();
-		initInputField();
-		initKeyPanel(); 
-		
-		mainFrame.add(inputField, BorderLayout.NORTH);
-		 
-		mainFrame.add(keyPanel, BorderLayout.CENTER);
-		mainFrame.setVisible(true);
+	private GuiController(){
+		mainFrame = new MainFrame(); 	
 	}
 	
-	
-	private void initKeyPanel(){
-		Vector<JPanel> panelVec = getActivePanels();
-		keyPanel.setLayout(new FlowLayout());
-		for(JPanel panel: panelVec){
-			keyPanel.add(panel);
+	public static GuiController getInstance(){
+		if(instance == null){
+			instance = new GuiController(); 
 		}
+		return instance; 
 	}
 	
-	private Vector<JPanel> getActivePanels(){
-		Vector<JPanel> panelVec = new Vector<JPanel>();
-		panelVec.add(new PhysicalConstants());
-		panelVec.add(new MathConstants());
-		panelVec.add(new BaseButtons());
-		panelVec.add(new BaseOperation());
-		panelVec.add(new PowerOps());
-		panelVec.add(new RootOps());
-		panelVec.add(new AreaOps());
-		panelVec.add(new PerimeterOps());
-		return panelVec;
+	public String getDisplayValue(){
+		return mainFrame.getDispalyValue();
 	}
 	
-	private void initInputField(){
-		inputField.setPreferredSize(new Dimension(mainFrame.getWidth(),50));
-		inputField.setEnabled(false);
+	public void setDisplayValue(String value){
+		mainFrame.setDisplayValue(value);
 	}
 	
-	private void initMainFrame(){
-		mainFrame.setSize(750, 180);
-		mainFrame.setResizable(false);
-		mainFrame.setLocationRelativeTo(null);
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.setLayout(new BorderLayout());
+	public void calculate(String[] terms){
+		// String Value which should be shown in the display after calculation
+		String solution = "Default"; 
+		// call calculation logic for calculation and override solution String
+		mainFrame.setDisplayValue(solution);
+		// Test Output until calculation logic is finished
+		System.out.println("Array length: " + terms.length);
+		for(String s : terms){
+			System.out.println(s);
+		}
+		
 	}
 	
 	
-	public String getInput(){
-		inputField.getText(); 
-		return ""; 
-	}
+	
 
 }

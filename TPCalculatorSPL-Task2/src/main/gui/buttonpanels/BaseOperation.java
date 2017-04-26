@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import main.gui.buttonlistener.OperationButtonListener;
+import main.gui.buttonlistener.TwoParamOpsListener;
 
 public class BaseOperation extends JPanel{
 	/**
@@ -35,10 +35,10 @@ public class BaseOperation extends JPanel{
 	}
 	
 	private void setButtonListener(){
-		ADD.addActionListener(new OperationButtonListener("ADD"));
-		SUB.addActionListener(new OperationButtonListener("SUB"));
-		MUL.addActionListener(new OperationButtonListener("MUL"));
-		DIV.addActionListener(new OperationButtonListener("DIV"));
+		ADD.addActionListener(new TwoParamOpsListener("ADD"));
+		SUB.addActionListener(new TwoParamOpsListener("SUB"));
+		MUL.addActionListener(new TwoParamOpsListener("MUL"));
+		DIV.addActionListener(new TwoParamOpsListener("DIV"));
 	}
 	
 }

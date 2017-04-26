@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import main.gui.buttonlistener.OperationButtonListener;
+import main.gui.buttonlistener.OneParamOpsListener;
 
 public class PowerOps extends JPanel{
 
@@ -29,8 +29,8 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void setButtonListener(){
-		POW2.addActionListener(new OperationButtonListener("Pow2"));
-		POW3.addActionListener(new OperationButtonListener("Pow3"));
-		POW4.addActionListener(new OperationButtonListener("Pow4"));
+		POW2.addActionListener(new OneParamOpsListener("Pow2"));
+		POW3.addActionListener(new OneParamOpsListener("Pow3"));
+		POW4.addActionListener(new OneParamOpsListener("Pow4"));
 	}
 }

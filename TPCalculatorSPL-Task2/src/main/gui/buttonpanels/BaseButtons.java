@@ -48,20 +48,22 @@ public class BaseButtons extends JPanel{
 		this.add(B7);
 		this.add(B8);
 		this.add(B9);
-		this.add(RBR);
+		this.add(EQ);
 		this.add(B4);
 		this.add(B5);
 		this.add(B6);
-		this.add(LBR);
+		this.add(KOMMA);
 		this.add(B1);
 		this.add(B2);
 		this.add(B3);
-		this.add(KOMMA);
+		this.add(RBR);
 		this.add(AC);
 		this.add(B0);
 		this.add(DEL);
-		this.add(EQ);
+		this.add(LBR);
 		
+		LBR.setVisible(false);
+		RBR.setVisible(false);
 		
 	}
 	

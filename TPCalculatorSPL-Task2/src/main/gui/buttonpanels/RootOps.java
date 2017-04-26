@@ -5,7 +5,7 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-import main.gui.buttonlistener.OperationButtonListener;
+import main.gui.buttonlistener.OneParamOpsListener;
 
 public class RootOps extends JPanel{
 	private final GridLayout GRID = new GridLayout(4, 1); 
@@ -26,8 +26,8 @@ public class RootOps extends JPanel{
 	}
 	
 	private void setButtonListener(){
-		ROOT2.addActionListener(new OperationButtonListener("Root2"));
-		ROOT3.addActionListener(new OperationButtonListener("Root3"));
+		ROOT2.addActionListener(new OneParamOpsListener("Root2"));
+		ROOT3.addActionListener(new OneParamOpsListener("Root3"));
 	}
 
 }

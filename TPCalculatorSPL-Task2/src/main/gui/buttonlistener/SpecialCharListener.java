@@ -3,6 +3,8 @@ package main.gui.buttonlistener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import main.gui.GuiController;
+
 public class SpecialCharListener implements ActionListener{
 	
 	private  String character = "";
@@ -12,7 +14,8 @@ public class SpecialCharListener implements ActionListener{
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Hello " + this.character);
+		String value = GuiController.getInstance().getDisplayValue();
+		GuiController.getInstance().setDisplayValue(value + character);
 	}
 
 }
