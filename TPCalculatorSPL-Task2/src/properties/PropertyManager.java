@@ -67,7 +67,6 @@ public class PropertyManager {
 		}
 
 		return Boolean.valueOf(property.getProperty(propertyName));
-
 	}
 
 }
