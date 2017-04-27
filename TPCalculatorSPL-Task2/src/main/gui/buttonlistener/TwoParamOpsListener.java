@@ -7,29 +7,30 @@ import main.gui.GuiController;
 
 public class TwoParamOpsListener implements ActionListener{
 
-	private String[] cache = new String[3];
-	private boolean isToggeled = false; 
-//	private  String operation = "";
+	
+	private  String operation = "";
 	
 	public TwoParamOpsListener(String operation) {
-		cache[0] = operation; 
+		this.operation = operation; 
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String value = GuiController.getInstance().getDisplayValue(); 
+		String value = GuiController.getInstance().getDisplayValue();
+		
 		//check for empty String
 		if(!value.equals("")){
+			GuiController.getInstance().setCache(0, operation);
 			//check isToggeled
-			if(!isToggeled){
-				cache[1]=value;
+			if(!GuiController.getInstance().isToggeled()){
+				GuiController.getInstance().setCache(1, value);
 				GuiController.getInstance().setDisplayValue("");
-				isToggeled = true; 
+				GuiController.getInstance().setToggeled(true);
 			}
 			else{
-				cache[2] = value; 
-				GuiController.getInstance().calculate(cache);
-				isToggeled = false; 
+				GuiController.getInstance().setCache(2, value);
+				GuiController.getInstance().calculate();
+				GuiController.getInstance().setToggeled(false);
 			}
 		}
 		

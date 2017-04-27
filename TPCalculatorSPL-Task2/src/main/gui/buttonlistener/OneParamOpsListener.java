@@ -7,19 +7,19 @@ import main.gui.GuiController;
 
 public class OneParamOpsListener implements ActionListener {
 
-//	private  String operation = "";
-	private String[] cache = new String[2];
+	private  String operation = "";
 	
 	public OneParamOpsListener(String operation) {
-		cache[0] = operation; 
+		this.operation= operation; 
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String value = GuiController.getInstance().getDisplayValue();  
 		if(!value.equals("")){
-			cache[1] = value;
-			GuiController.getInstance().calculate(cache);
+			GuiController.getInstance().setCache(0, operation);
+			GuiController.getInstance().setCache(1, value);
+			GuiController.getInstance().calculate();
 		}
 	}
 

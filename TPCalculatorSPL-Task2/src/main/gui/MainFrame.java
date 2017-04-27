@@ -9,6 +9,7 @@ import java.util.Vector;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import main.gui.buttonpanels.AngleOps;
 import main.gui.buttonpanels.AreaOps;
 import main.gui.buttonpanels.BaseButtons;
 import main.gui.buttonpanels.BaseOperation;
@@ -50,6 +51,7 @@ public class MainFrame extends JFrame{
 		panelVec.add(new BaseButtons());
 		panelVec.add(new BaseOperation());
 		panelVec.add(new PowerOps());
+		panelVec.add(new AngleOps());
 		panelVec.add(new RootOps());
 		panelVec.add(new AreaOps());
 		panelVec.add(new PerimeterOps());

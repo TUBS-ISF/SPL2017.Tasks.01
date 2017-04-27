@@ -1,5 +1,7 @@
 package main.gui;
 
+import main.calculationLogic.CalculationLogic;
+
 /**
  * TODO description
  */
@@ -8,8 +10,13 @@ public class GuiController {
 	public static GuiController instance = null; 
 	private MainFrame mainFrame = null; 
 	
+	private String[] cache = new String[6];
+	private boolean toggeled = false; 
+	private CalculationLogic clacLogic = new CalculationLogic(); 
+	
 	private GuiController(){
-		mainFrame = new MainFrame(); 	
+		mainFrame = new MainFrame();
+		initCache();
 	}
 	
 	public static GuiController getInstance(){
@@ -17,6 +24,12 @@ public class GuiController {
 			instance = new GuiController(); 
 		}
 		return instance; 
+	}
+	
+	private void initCache(){
+		for(int i = 0; i<cache.length; i++){
+			cache[i] = "0";
+		}
 	}
 	
 	public String getDisplayValue(){
@@ -27,17 +40,27 @@ public class GuiController {
 		mainFrame.setDisplayValue(value);
 	}
 	
-	public void calculate(String[] terms){
-		// String Value which should be shown in the display after calculation
-		String solution = "Default"; 
-		// call calculation logic for calculation and override solution String
+	public void calculate(){
+		String solution = clacLogic.calculate(cache); 
 		mainFrame.setDisplayValue(solution);
-		// Test Output until calculation logic is finished
-		System.out.println("Array length: " + terms.length);
-		for(String s : terms){
-			System.out.println(s);
 		}
-		
+	
+	public void setCache(int pos, String value){
+		cache[pos] = value; 
+	}
+
+	public boolean isToggeled() {
+		return toggeled;
+	}
+
+	public void setToggeled(boolean isToggeled) {
+		this.toggeled = isToggeled;
+	}
+	
+	public void clearCache(){
+		for(int i = 0; i < cache.length; i++){
+			cache[i] = "0"; 
+		}
 	}
 	
 	

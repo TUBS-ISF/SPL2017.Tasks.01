@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import main.calculationLogic.CalculationLogic;
+import main.gui.GuiController;
 import main.gui.buttonlistener.NumberButtonListener;
 import main.gui.buttonlistener.SpecialCharListener;
 
@@ -87,8 +89,8 @@ public class BaseButtons extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Hello AC Button");
-				
+				GuiController.getInstance().setDisplayValue("");
+				GuiController.getInstance().clearCache(); 	
 			}
 		});
 		
@@ -96,7 +98,7 @@ public class BaseButtons extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Hello DEL Button");
+				GuiController.getInstance().setDisplayValue(""); 
 				
 			}
 		});
@@ -105,8 +107,7 @@ public class BaseButtons extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Hello EQ Button");
-				
+				GuiController.getInstance().calculate();
 			}
 		});
 	}
