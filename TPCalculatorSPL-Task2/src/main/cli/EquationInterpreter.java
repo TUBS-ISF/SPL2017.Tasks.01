@@ -1,4 +1,4 @@
-package main.calculationLogic;
+package main.cli;
 
 import java.util.Vector;
 
