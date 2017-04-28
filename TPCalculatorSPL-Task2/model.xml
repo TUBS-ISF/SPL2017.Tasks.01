@@ -199,7 +199,7 @@
 								Calculate the perimeter of Rectangles.
 							</description>
 						</feature>
-						<feature abstract="true" name="PoS">
+						<feature abstract="true" name="PoC">
 							<description>
 								Calculate the perimeter of  Squares.
 							</description>
