@@ -2,6 +2,7 @@ package main.cli;
 
 import java.util.Scanner;
 
+import main.ConstantManager;
 import main.calculationLogic.CalculationLogic;
 
 /**
@@ -16,7 +17,6 @@ public class CommandLine {
 	    Scanner scanner = new Scanner(System.in);
 
 	    String inputStr = "";
-	    String outputStr = "";
 	    
 	    //start the listing to the command line 
 	    while(true){
@@ -26,6 +26,9 @@ public class CommandLine {
 		   if(inputStr.equals("q")){
 			   System.exit(0);
 		   }
+		   /**
+		    * TODO: find a good possibility to check for invalid input parameters.
+		    */
 		   String[] commandArray = interpret(inputStr);
 		   
 		   System.out.println(calcLogic.calculate(commandArray));
@@ -34,8 +37,24 @@ public class CommandLine {
 	
 	private String[] interpret(String command){
 		String[] commandArray = command.split(" ");
-		
+		for(int i = 0; i<commandArray.length; i++){
+			commandArray[i] = checkForConst(commandArray[i]);
+		}
 		return commandArray; 
+	}
+	
+	private String checkForConst(String param){
+		String value = param; 
+		if(ConstantManager.getInstance().getMap().keySet().contains(param.toUpperCase())){
+			value = ConstantManager.getInstance().getMap().get(param); 
+		}
+		try{
+			Double.valueOf(value);
+		}
+		catch(NumberFormatException nfe){
+			System.out.println("Your Input was: " + value + "This Constant is not support in your Product.");
+		}
+		return value;
 	}
 	
 }

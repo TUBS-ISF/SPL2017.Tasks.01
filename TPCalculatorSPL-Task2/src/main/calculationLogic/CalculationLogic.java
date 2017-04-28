@@ -22,12 +22,21 @@ public class CalculationLogic {
 			operation = content[0];
 		}
 		if(content.length >= 2){
-			param1 = Double.valueOf(content[1]);
+			try{
+				param1 = Double.valueOf(content[1]); 
+			}
+			catch(Exception e){
+				System.out.println("Erorr uccured");
+			}
 			
 		}
 		if(content.length >= 3){
-			param2 = Double.valueOf(content[2]);
-			
+			try{
+				param2 = Double.valueOf(content[2]); 
+			}
+			catch(Exception e){
+				System.out.println("Erorr uccured");
+			}
 		}
 		calculateOp();
 		return String.valueOf(solutio); 

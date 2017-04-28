@@ -2,6 +2,8 @@ package main;
 
 import java.util.HashMap;
 
+import properties.PropertyManager;
+
 public class ConstantManager {
 	
 	private final String PI = "3.1415926"; 
@@ -15,11 +17,21 @@ public class ConstantManager {
 	
 	private ConstantManager(){
 		super(); 
-		map.put("PI", PI);
-		map.put("EN", EN);
-		map.put("SOS", SOS);
-		map.put("SOL", SOL);
-		map.put("GC", GC);
+		if(PropertyManager.getProperty("Pi")){
+			map.put("PI", PI);
+		}
+		if(PropertyManager.getProperty("EN")){
+			map.put("EN", EN);
+		}
+		if(PropertyManager.getProperty("SOS")){
+			map.put("SOS", SOS);
+		}
+		if(PropertyManager.getProperty("SOL")){
+			map.put("SOL", SOL);
+		}
+		if(PropertyManager.getProperty("GC")){
+			map.put("GC", GC);
+		}
 	}
 	
 	public static ConstantManager getInstance(){
