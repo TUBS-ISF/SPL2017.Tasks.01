@@ -18,6 +18,7 @@ import main.gui.buttonpanels.PerimeterOps;
 import main.gui.buttonpanels.PhysicalConstants;
 import main.gui.buttonpanels.PowerOps;
 import main.gui.buttonpanels.RootOps;
+import properties.PropertyManager;
 
 public class MainFrame extends JFrame{
 
@@ -46,15 +47,25 @@ public class MainFrame extends JFrame{
 	}
 	
 	private Vector<JPanel> getActivePanels(){
-		panelVec.add(new PhysicalConstants());
-		panelVec.add(new MathConstants());
+		if(PropertyManager.getProperty("SC")){
+			panelVec.add(new PhysicalConstants());
+			panelVec.add(new MathConstants());
+		}
+		//Base Buttons are always shown, so no if condition for this one.
 		panelVec.add(new BaseButtons());
-		panelVec.add(new BaseOperation());
-		panelVec.add(new PowerOps());
-		panelVec.add(new AngleOps());
-		panelVec.add(new RootOps());
-		panelVec.add(new AreaOps());
-		panelVec.add(new PerimeterOps());
+		
+		if(PropertyManager.getProperty("Base")){
+			panelVec.add(new BaseOperation());
+		}
+		if(PropertyManager.getProperty("Potencies")){
+			panelVec.add(new PowerOps());
+		}
+		if(PropertyManager.getProperty("AngleOps")){
+			panelVec.add(new AngleOps());
+		}
+		if(PropertyManager.getProperty("Roots")){
+			panelVec.add(new RootOps());
+		}
 		return panelVec;
 	}
 	

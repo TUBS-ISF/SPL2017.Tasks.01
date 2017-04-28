@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.SpecialValueListener;
+import properties.PropertyManager;
 
 public class MathConstants extends JPanel{
 	
@@ -22,8 +23,12 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void initGrid(){
-		this.add(PI);
-		this.add(EN);
+		if(PropertyManager.getProperty("Pi")){
+			this.add(PI);
+		}
+		if(PropertyManager.getProperty("EN")){
+			this.add(EN);
+		}
 	}
 	
 	private void setButtonListener(){

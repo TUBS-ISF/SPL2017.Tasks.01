@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.OneParamOpsListener;
+import properties.PropertyManager;
 
 public class PerimeterOps extends JPanel{
 	
@@ -23,9 +24,16 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void initGrid(){
-		this.add(POR);
-		this.add(POC);
-		this.add(POT);
+		if(PropertyManager.getProperty("PoR")){
+			this.add(POR);
+		}
+		if(PropertyManager.getProperty("PoC")){
+			this.add(POC);
+		}
+
+		if(PropertyManager.getProperty("PoT")){
+			this.add(POT);
+		}
 	}
 	
 	private void setButtonListener(){

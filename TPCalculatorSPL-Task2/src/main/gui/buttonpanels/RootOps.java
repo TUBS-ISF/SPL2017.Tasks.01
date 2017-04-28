@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.OneParamOpsListener;
+import properties.PropertyManager;
 
 public class RootOps extends JPanel{
 	private final GridLayout GRID = new GridLayout(4, 1); 
@@ -21,8 +22,12 @@ public class RootOps extends JPanel{
 	}
 	
 	private void initGrid(){
-		this.add(ROOT2);
-		this.add(ROOT3);
+		if(PropertyManager.getProperty("Sqrt")){
+			this.add(ROOT2);
+		}
+		if(PropertyManager.getProperty("Root3")){
+			this.add(ROOT3);
+		}
 	}
 	
 	private void setButtonListener(){

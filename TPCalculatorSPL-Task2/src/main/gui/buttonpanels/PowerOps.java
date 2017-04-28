@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.OneParamOpsListener;
+import properties.PropertyManager;
 
 public class PowerOps extends JPanel{
 
@@ -23,9 +24,16 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void initGrid(){
-		this.add(POW2);
-		this.add(POW3);
-		this.add(POW4);
+		if(PropertyManager.getProperty("P2O")){
+			this.add(POW2);
+		}
+		if(PropertyManager.getProperty("P3O")){
+			this.add(POW3);
+		}
+
+		if(PropertyManager.getProperty("P4O")){
+			this.add(POW4);
+		}
 	}
 	
 	private void setButtonListener(){

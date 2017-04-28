@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.TwoParamOpsListener;
+import properties.PropertyManager;
 
 public class BaseOperation extends JPanel{
 	/**
@@ -28,10 +29,19 @@ public class BaseOperation extends JPanel{
 	}
 	
 	private void initGrid(){
-		this.add(ADD);
-		this.add(SUB);
-		this.add(MUL);
-		this.add(DIV);
+		if(PropertyManager.getProperty("ADD")){
+			this.add(ADD);
+		}
+		if(PropertyManager.getProperty("SUB")){
+			this.add(SUB);
+		}
+
+		if(PropertyManager.getProperty("MUL")){
+			this.add(MUL);
+		}
+		if(PropertyManager.getProperty("DIV")){
+			this.add(DIV);
+		}
 	}
 	
 	private void setButtonListener(){

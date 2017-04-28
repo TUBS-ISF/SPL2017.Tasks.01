@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.OneParamOpsListener;
+import properties.PropertyManager;
 
 public class AngleOps extends JPanel{
 	
@@ -23,9 +24,16 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void initGrid(){
-		this.add(SIN);
-		this.add(COS);
-		this.add(TAN);
+		if(PropertyManager.getProperty("Sin")){
+			this.add(SIN);
+		}
+		if(PropertyManager.getProperty("Cos")){
+			this.add(COS);
+		}
+
+		if(PropertyManager.getProperty("Tan")){
+			this.add(TAN);
+		}
 	}
 	
 	private void setButtonListener(){
@@ -33,5 +41,4 @@ private final GridLayout GRID = new GridLayout(4, 1);
 		COS.addActionListener(new OneParamOpsListener("COS"));
 		TAN.addActionListener(new OneParamOpsListener("TAN"));
 	}
-
 }

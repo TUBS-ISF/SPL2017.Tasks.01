@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.SpecialValueListener;
+import properties.PropertyManager;
 
 public class PhysicalConstants extends JPanel{
 
@@ -23,9 +24,16 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void initGrid(){
-		this.add(SOL);
-		this.add(SOS);
-		this.add(GC);
+		if(PropertyManager.getProperty("SOL")){
+			this.add(SOL);
+		}
+		if(PropertyManager.getProperty("SOS")){
+			this.add(SOS);
+		}
+
+		if(PropertyManager.getProperty("GC")){
+			this.add(GC);
+		}
 	}
 	
 	private void setButtonListener(){

@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import main.gui.buttonlistener.OneParamOpsListener;
+import properties.PropertyManager;
 
 public class AreaOps extends JPanel{
 	
@@ -24,9 +25,16 @@ private final GridLayout GRID = new GridLayout(4, 1);
 	}
 	
 	private void initGrid(){
-		this.add(AOR);
-		this.add(AOC);
-		this.add(AOT);
+		if(PropertyManager.getProperty("AoR")){
+			this.add(AOR);
+		}
+		if(PropertyManager.getProperty("AoC")){
+			this.add(AOC);
+		}
+
+		if(PropertyManager.getProperty("AoT")){
+			this.add(AOT);
+		}
 	}
 	
 	private void setButtonListener(){
