@@ -12,6 +12,7 @@ public class GuiController {
 	
 	private String[] cache = new String[6];
 	private boolean toggeled = false; 
+	private boolean newNumber = false; 
 	private CalculationLogic clacLogic = new CalculationLogic(); 
 	
 	private GuiController(){
@@ -43,10 +44,11 @@ public class GuiController {
 	public void calculate(){
 		String solution = clacLogic.calculate(cache); 
 		mainFrame.setDisplayValue(solution);
+		newNumber = true; 
 		}
 	
 	public void setCache(int pos, String value){
-		cache[pos] = value; 
+		cache[pos] = value; 		
 	}
 
 	public boolean isToggeled() {
@@ -61,9 +63,16 @@ public class GuiController {
 		for(int i = 0; i < cache.length; i++){
 			cache[i] = "0"; 
 		}
+		newNumber = false; 
 	}
-	
-	
+
+	public boolean isNewNumber() {
+		return newNumber;
+	}
+
+	public void setNewNumber(boolean calculated) {
+		this.newNumber = calculated;
+	}
 	
 
 }

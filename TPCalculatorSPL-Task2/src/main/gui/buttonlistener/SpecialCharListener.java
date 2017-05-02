@@ -15,6 +15,9 @@ public class SpecialCharListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String value = GuiController.getInstance().getDisplayValue();
+		if(character.equals(".") && value.equals("")){
+			value = "0"; 
+		}
 		GuiController.getInstance().setDisplayValue(value + character);
 	}
 

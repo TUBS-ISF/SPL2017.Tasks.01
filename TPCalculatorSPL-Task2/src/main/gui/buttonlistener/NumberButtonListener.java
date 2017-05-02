@@ -16,7 +16,14 @@ public class NumberButtonListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String value = GuiController.getInstance().getDisplayValue(); 
-		value = value + number; 
+		if(!GuiController.getInstance().isNewNumber()){
+			value = value + number;
+		}
+		else{
+			GuiController.getInstance().setCache(1, GuiController.getInstance().getDisplayValue());
+			GuiController.getInstance().setNewNumber(false);
+			value = number;
+		}
 		GuiController.getInstance().setDisplayValue(value);
 		
 	}

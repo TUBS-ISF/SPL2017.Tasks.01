@@ -83,7 +83,7 @@ public class BaseButtons extends JPanel{
 		
 		RBR.addActionListener(new SpecialCharListener(")"));
 		LBR.addActionListener(new SpecialCharListener("("));
-		KOMMA.addActionListener(new SpecialCharListener(","));
+		KOMMA.addActionListener(new SpecialCharListener("."));
 		
 		AC.addActionListener(new ActionListener() {
 			
@@ -91,6 +91,7 @@ public class BaseButtons extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				GuiController.getInstance().setDisplayValue("");
 				GuiController.getInstance().clearCache(); 	
+				GuiController.getInstance().setToggeled(false);
 			}
 		});
 		
@@ -107,7 +108,17 @@ public class BaseButtons extends JPanel{
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				GuiController.getInstance().calculate();
+				if(GuiController.getInstance().isToggeled()){
+					String value = GuiController.getInstance().getDisplayValue(); 
+					GuiController.getInstance().setCache(2, value);
+					GuiController.getInstance().calculate();
+//					GuiController.getInstance().setCache(1, value);
+					GuiController.getInstance().setToggeled(false);
+				}
+				else{
+					GuiController.getInstance().calculate();
+				}
+					
 			}
 		});
 	}

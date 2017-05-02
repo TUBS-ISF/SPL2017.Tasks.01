@@ -24,13 +24,13 @@ public class TwoParamOpsListener implements ActionListener{
 			//check isToggeled
 			if(!GuiController.getInstance().isToggeled()){
 				GuiController.getInstance().setCache(1, value);
-				GuiController.getInstance().setDisplayValue("");
+				GuiController.getInstance().setNewNumber(true);
 				GuiController.getInstance().setToggeled(true);
 			}
 			else{
 				GuiController.getInstance().setCache(2, value);
 				GuiController.getInstance().calculate();
-				GuiController.getInstance().setToggeled(false);
+				System.out.println("Action called");
 			}
 		}
 		
