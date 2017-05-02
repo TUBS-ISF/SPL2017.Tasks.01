@@ -18,26 +18,24 @@ public class CommandLine {
 
 	    String inputStr = "";
 	    
-	    //start the listing to the command line 
+	    //start the listing to the command line
+	    System.out.print("enter q to close the application \n");
+	    System.out.println("enter a comand like \"add#x#y\" : ");
 	    while(true){
-		    System.out.print("enter q to close the application \n");
-		    System.out.println("enter a comand like \"add x y\" : ");
-		   inputStr = scanner.next().trim().toLowerCase();
+		   inputStr = scanner.next().toLowerCase();
 		   if(inputStr.equals("q")){
 			   System.exit(0);
 		   }
-		   /**
-		    * TODO: find a good possibility to check for invalid input parameters.
-		    */
 		   String[] commandArray = interpret(inputStr);
 		   
 		   System.out.println(calcLogic.calculate(commandArray));
+		   
 	    }
 	}
 	
 	private String[] interpret(String command){
-		String[] commandArray = command.split(" ");
-		for(int i = 0; i<commandArray.length; i++){
+		String[] commandArray = command.split("\\#");
+		for(int i = 1; i<commandArray.length; i++){
 			commandArray[i] = checkForConst(commandArray[i]);
 		}
 		return commandArray; 
@@ -46,13 +44,12 @@ public class CommandLine {
 	private String checkForConst(String param){
 		String value = param; 
 		if(ConstantManager.getInstance().getMap().keySet().contains(param.toUpperCase())){
-			value = ConstantManager.getInstance().getMap().get(param); 
+			value = ConstantManager.getInstance().getMap().get(param.toUpperCase()); 
 		}
 		try{
 			Double.valueOf(value);
 		}
 		catch(NumberFormatException nfe){
-			System.out.println("Your Input was: " + value + "This Constant is not support in your Product.");
 		}
 		return value;
 	}
