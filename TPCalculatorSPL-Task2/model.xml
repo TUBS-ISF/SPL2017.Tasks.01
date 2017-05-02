@@ -18,7 +18,7 @@
 					<description>
 						Operations the user can choose from.
 					</description>
-					<or abstract="true" name="Base">
+					<or name="Base">
 						<description>
 							Basic Operations supported by a common calculator.
 						</description>
@@ -60,7 +60,7 @@
 							Advanced operation not every user needs.
 							For example: Roots, Potencies, Angleoperations, Statisticaloperations.
 						</description>
-						<or abstract="true" mandatory="true" name="Roots">
+						<or mandatory="true" name="Roots">
 							<description>
 								Operations to take the root of n-th degree from a given Number.
 							</description>
@@ -82,7 +82,7 @@
 								</description>
 							</feature>
 						</or>
-						<or abstract="true" mandatory="true" name="Potencies">
+						<or mandatory="true" name="Potencies">
 							<description>
 								Build the n-th power of a given Number.
 							</description>
@@ -108,7 +108,7 @@
 								</description>
 							</feature>
 						</or>
-						<or abstract="true" mandatory="true" name="AngleOps">
+						<or mandatory="true" name="AngleOps">
 							<description>
 								Provide at least one of the basic angle operations for the user. 
 								Supported Operations: Sinus, Cosinus, Tangent.
@@ -211,7 +211,7 @@
 						</feature>
 					</and>
 				</and>
-				<or abstract="true" name="SC">
+				<or name="SC">
 					<description>
 						SpecialConstants: 
 						Provide quick access to some of the most used cnstants in math and physics.
