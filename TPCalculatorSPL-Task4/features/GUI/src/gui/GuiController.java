@@ -19,7 +19,6 @@ public class GuiController implements interfaces.IUi{
 	@Override
 	public void init() {
 		instance = this; 
-		System.out.println("Gui Controller started");
 		mainFrame = new MainFrame();
 		
 	}

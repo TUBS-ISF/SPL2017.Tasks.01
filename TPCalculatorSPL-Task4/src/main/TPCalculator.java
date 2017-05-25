@@ -14,7 +14,6 @@ import loader.PluginLoader;
 public class TPCalculator {
 
 	private TPCalculator() {
-		System.out.println("start");
 						
 		List<IUi> UiPlugins = PluginLoader.load(IUi.class);
 		initUi(UiPlugins);

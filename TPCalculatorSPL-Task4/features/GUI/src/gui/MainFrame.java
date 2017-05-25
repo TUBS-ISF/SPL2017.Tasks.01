@@ -7,11 +7,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import interfaces.IButton;
 import interfaces.IPanel;
+import listener.OneParamOpsListener;
+import listener.SpecialValueListener;
+import listener.TwoParamOpsListener;
 import loader.PluginLoader;
 
 public class MainFrame extends JFrame{
@@ -22,79 +26,49 @@ private static final long serialVersionUID = -1966090415318542313L;
 	private TextField display = new TextField();
 	private JPanel keyPanel = new JPanel();
 	
-	private final HashMap<String, IButton> buttMap = new HashMap<String,IButton>();
-	private final HashMap<String, IPanel> panelMap = new HashMap<String,IPanel>();
+	private final HashMap<String, IButton> iButtMap = new HashMap<String,IButton>();
+	private final HashMap<String, IPanel> iPanelMap = new HashMap<String,IPanel>();
+	private final HashMap<String, JButton> buttonMap = new HashMap<String,JButton>();
 	
 	private final String[] PANELS = {"ConstantsPanel", "BaseButtons", "BasePanel", 
 									"PotencyPanel", "AnglePanel", "RootsPanel"}; 
 	
 	public MainFrame(){
 		super(); 
-		System.out.println("Main started");
+		initIButtonMap();
 		initButtonMap();
-		initPanelMap();
-		getActivePanels();
+		initIPanelMap();
 		initKeyPanel();
 		initDisplay();
 		initMainFrame();
 	}
 	
-	private void initButtonMap(){
+	private void initIButtonMap(){
 		List<IButton> buttonPlugins = PluginLoader.load(IButton.class);
 		for(IButton butt : buttonPlugins){
-			System.out.println("Classname: " + butt.getClass().getName());
-			String key = butt.getClass().getName().toUpperCase(); 
-			buttMap.put(key, butt); 
+			String key = butt.getClass().getName(); 
+			iButtMap.put(key, butt); 
 		}
 	}
 	
-	private void initPanelMap(){
+	private void initIPanelMap(){
 		List<IPanel> panelPlugins = PluginLoader.load(IPanel.class);
 		for(IPanel panel : panelPlugins){
-			System.out.println("Classname: " + panel.getClass().getName());
-			String key = panel.getClass().getName().toUpperCase(); 
-			panelMap.put(key, panel); 
+			String key = panel.getClass().getName(); 
+			iPanelMap.put(key, panel); 
 		}
-		panelMap.put("BaseButtons", new BaseButtons()); 
+		iPanelMap.put("BaseButtons", new BaseButtons()); 
 	}
 	
 	private void initKeyPanel(){
 		keyPanel.setLayout(new FlowLayout());
-//		for(JPanel panel: panelVec){
-//			keyPanel.add(panel);
-//		}
 		for(String key : PANELS){
-			if(panelMap.containsKey(key)){
-				keyPanel.add(panelMap.get(key).getPanel());
+			if(iPanelMap.containsKey(key)){
+				JPanel panel = iPanelMap.get(key).getPanel(buttonMap); 
+				keyPanel.add(panel);
+				panelVec.add(panel);
 			}
 		}
-	}
-	
-	private Vector<JPanel> getActivePanels(){
-//		/*if[SC]*/	
-//		panelVec.add(new PhysicalConstants());
-//		panelVec.add(new MathConstants());
-//		/*end[SC]*/
-//		
-		//Base Buttons are always shown, so no if condition for this one.
-//		panelVec.add(new BaseButtons());
-//		
-//		/*if[Base]*/	
-//		panelVec.add(new BaseOperation());
-//		/*end[Base]*/
-//		
-//		/*if[Potencies]*/	
-//		panelVec.add(new PowerOps());
-//		/*end[Potencies]*/
-//			
-//		/*if[AngleOps]*/	
-//		panelVec.add(new AngleOps());
-//		/*end[AngleOps]*/
-//			
-//		/*if[Roots]*/	
-//		panelVec.add(new RootOps());
-//		/*end[Roots]*/
-		return panelVec;
 	}
 	
 	private void initDisplay(){
@@ -103,7 +77,7 @@ private static final long serialVersionUID = -1966090415318542313L;
 	}
 	
 	private void initMainFrame(){
-		this.setSize(calcFrameWidth(), 180);
+		this.setSize(calcFrameWidth(), 200);
 		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -124,5 +98,70 @@ private static final long serialVersionUID = -1966090415318542313L;
 	
 	public void setDisplayValue(String value){
 		display.setText(value);
+	}
+	
+	private void initButtonMap(){
+		for(String key : iButtMap.keySet()){
+			JButton button = iButtMap.get(key).getButton(); 
+			switch(key){
+			//base ops
+			case "AddButton":
+				button.addActionListener(new TwoParamOpsListener("ADD"));
+				break; 
+			case "SubButton":
+				button.addActionListener(new TwoParamOpsListener("SUB"));
+				break;
+			case "MulButton": 
+				button.addActionListener(new TwoParamOpsListener("MUL"));
+				break;
+			case "DivButton":
+				button.addActionListener(new TwoParamOpsListener("DIV"));
+				break;
+			//angle ops
+			case "CosButton":
+				button.addActionListener(new OneParamOpsListener("COS"));
+				break;
+			case "SinButton":
+				button.addActionListener(new OneParamOpsListener("SIN"));
+				break;
+			case "TanButton": 
+				button.addActionListener(new OneParamOpsListener("TAN"));
+				break;
+			//potency ops
+			case "Pow2Button": 
+				button.addActionListener(new OneParamOpsListener("Pow2"));
+				break; 
+			case "Pow3Button": 
+				button.addActionListener(new OneParamOpsListener("Pow3"));
+				break; 
+			case "Pow4Button": 
+				button.addActionListener(new OneParamOpsListener("Pow4"));
+				break;
+			//rootOps
+			case "Root3Button": 
+				button.addActionListener(new OneParamOpsListener("Root3"));
+				break; 
+			case "Root2Button":
+				button.addActionListener(new OneParamOpsListener("Root2"));
+				break;
+			//constants
+			case "EnButton": 
+				button.addActionListener(new SpecialValueListener("EN"));
+				break; 
+			case "GcButton":
+				button.addActionListener(new SpecialValueListener("GC"));
+				break; 
+			case "PiButton": 
+				button.addActionListener(new SpecialValueListener("PI"));
+				break; 
+			case "SolButton": 
+				button.addActionListener(new SpecialValueListener("SOL"));
+				break; 
+			case "SosButton": 
+				button.addActionListener(new SpecialValueListener("SOS"));
+				break; 
+			}
+			buttonMap.put(key, button); 
+		}
 	}
 }

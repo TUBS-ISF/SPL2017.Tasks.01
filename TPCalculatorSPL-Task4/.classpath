@@ -3,12 +3,34 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="jars/AC/AC.jar"/>
+	<classpathentry kind="lib" path="jars/ADD/ADD.jar"/>
+	<classpathentry kind="lib" path="jars/AngleOps/AngleOps.jar"/>
+	<classpathentry kind="lib" path="jars/Base/Base.jar"/>
 	<classpathentry kind="lib" path="jars/BaseKeys/BaseKeys.jar"/>
+	<classpathentry kind="lib" path="jars/Cos/Cos.jar"/>
+	<classpathentry kind="lib" path="jars/DIV/DIV.jar"/>
 	<classpathentry kind="lib" path="jars/Del/Del.jar"/>
 	<classpathentry kind="lib" path="jars/Display/Display.jar"/>
+	<classpathentry kind="lib" path="jars/EN/EN.jar"/>
 	<classpathentry kind="lib" path="jars/Equals/Equals.jar"/>
+	<classpathentry kind="lib" path="jars/GC/GC.jar"/>
 	<classpathentry kind="lib" path="jars/GUI/GUI.jar"/>
+	<classpathentry kind="lib" path="jars/MUL/MUL.jar"/>
 	<classpathentry kind="lib" path="jars/Numbers/Numbers.jar"/>
 	<classpathentry kind="lib" path="jars/OpKey/OpKey.jar"/>
+	<classpathentry kind="lib" path="jars/P2O/P2O.jar"/>
+	<classpathentry kind="lib" path="jars/P3O/P3O.jar"/>
+	<classpathentry kind="lib" path="jars/P4O/P4O.jar"/>
+	<classpathentry kind="lib" path="jars/Pi/Pi.jar"/>
+	<classpathentry kind="lib" path="jars/Potencies/Potencies.jar"/>
+	<classpathentry kind="lib" path="jars/Root3/Root3.jar"/>
+	<classpathentry kind="lib" path="jars/Roots/Roots.jar"/>
+	<classpathentry kind="lib" path="jars/SC/SC.jar"/>
+	<classpathentry kind="lib" path="jars/SOL/SOL.jar"/>
+	<classpathentry kind="lib" path="jars/SOS/SOS.jar"/>
+	<classpathentry kind="lib" path="jars/SUB/SUB.jar"/>
+	<classpathentry kind="lib" path="jars/Sin/Sin.jar"/>
+	<classpathentry kind="lib" path="jars/Sqrt/Sqrt.jar"/>
+	<classpathentry kind="lib" path="jars/Tan/Tan.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

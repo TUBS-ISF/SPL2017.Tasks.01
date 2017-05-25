@@ -3,10 +3,12 @@ package gui;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import interfaces.IButton;
 import interfaces.IPanel;
 import listener.NumberButtonListener;
 import listener.SpecialCharListener;
@@ -119,8 +121,9 @@ public class BaseButtons implements IPanel{
 		});
 	}
 
+	
 	@Override
-	public JPanel getPanel() {
+	public JPanel getPanel(HashMap<String, JButton> buttMap) {
 		return panel;
 	}
 
