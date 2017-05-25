@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plugins>
+	<interface id="interfaces.IConstant">
+		<class>Gc</class>
+	</interface>
+	<interface id="interfaces.IButton">
+		<class>GcButton</class>
+	</interface>
+</plugins>

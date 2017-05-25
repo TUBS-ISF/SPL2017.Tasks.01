@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plugins>
+	<interface id="interfaces.IOperation">
+		<class>Pow4</class>
+	</interface>
+	<interface id="interfaces.IButton">
+		<class>Pow4Button</class>
+	</interface>
+</plugins>
