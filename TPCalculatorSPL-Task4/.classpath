@@ -20,10 +20,8 @@
 	<classpathentry kind="lib" path="jars/OpKey/OpKey.jar"/>
 	<classpathentry kind="lib" path="jars/P2O/P2O.jar"/>
 	<classpathentry kind="lib" path="jars/P3O/P3O.jar"/>
-	<classpathentry kind="lib" path="jars/P4O/P4O.jar"/>
 	<classpathentry kind="lib" path="jars/Pi/Pi.jar"/>
 	<classpathentry kind="lib" path="jars/Potencies/Potencies.jar"/>
-	<classpathentry kind="lib" path="jars/Root3/Root3.jar"/>
 	<classpathentry kind="lib" path="jars/Roots/Roots.jar"/>
 	<classpathentry kind="lib" path="jars/SC/SC.jar"/>
 	<classpathentry kind="lib" path="jars/SOL/SOL.jar"/>
