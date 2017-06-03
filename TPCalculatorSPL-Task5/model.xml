@@ -2,7 +2,7 @@
 	<featureModel>
 		<properties/>
 		<struct>
-			<and abstract="true" mandatory="true" name="TPCalculatorSPL">
+			<and mandatory="true" name="TPCalculatorSPL">
 				<description>
 					Calculator software product line. 
 					Designed for a variaty of users.
@@ -11,7 +11,7 @@
 					Calculator software product line. 
 					Designed for a variaty of users.
 				</description>
-				<and abstract="true" mandatory="true" name="Operations">
+				<and name="Operations">
 					<description>
 						Operations the user can choose from.
 					</description>
@@ -251,7 +251,7 @@
 						</description>
 					</feature>
 				</or>
-				<alt abstract="true" mandatory="true" name="UI">
+				<alt name="UI">
 					<description>
 						UserInterface:
 						Provide interaction possibilities for the user.
@@ -311,14 +311,40 @@
 								An equals button to show the result of an equation is given.
 								The keydisplay adjust dynamically to the chosen operations.
 							</description>
-							<feature mandatory="true" name="OpKey">
+							<and mandatory="true" name="OpKey">
 								<description>
 									OperationKey:
 									For every chosen operation the operation key must be provided.
 									For example: 
 									If addition is by the user, an button "+" will be provided in the Gui.
 								</description>
-							</feature>
+								<description>
+									OperationKey:
+									For every chosen operation the operation key must be provided.
+									For example: 
+									If addition is by the user, an button "+" will be provided in the Gui.
+								</description>
+								<and name="BaseBut">
+									<feature name="AddB"/>
+									<feature name="SubB"/>
+									<feature name="DivB"/>
+									<feature name="MulB"/>
+								</and>
+								<and name="AngleBut">
+									<feature name="TanB"/>
+									<feature name="SinB"/>
+									<feature name="CosB"/>
+								</and>
+								<and name="RootBut">
+									<feature name="Root3B"/>
+									<feature name="Root2B"/>
+								</and>
+								<and name="PowerBut">
+									<feature name="Pow3B"/>
+									<feature name="Pow4B"/>
+									<feature name="Pow2B"/>
+								</and>
+							</and>
 							<and mandatory="true" name="BaseKeys">
 								<description>
 									Provide the basic keys calculator.
@@ -360,6 +386,13 @@
 										Button for right brackets.
 									</description>
 								</feature>
+							</and>
+							<and name="ScKeys">
+								<feature name="PiB"/>
+								<feature name="EnB"/>
+								<feature name="SolB"/>
+								<feature name="SosB"/>
+								<feature name="GcB"/>
 							</and>
 						</and>
 						<feature mandatory="true" name="Display">
@@ -452,6 +485,159 @@
 				<imp>
 					<var>IDS</var>
 					<var>Statistical</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>AddB</var>
+						<var>ADD</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>SubB</var>
+						<var>SUB</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>MulB</var>
+						<var>MUL</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>DivB</var>
+						<var>DIV</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>TanB</var>
+						<var>Tan</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>SinB</var>
+						<var>Sin</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>CosB</var>
+						<var>Cos</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>Pow2B</var>
+						<var>P2O</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>Pow3B</var>
+						<var>P3O</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>Pow4B</var>
+						<var>P4O</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>Root2B</var>
+						<var>Sqrt</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>Root3B</var>
+						<var>Root3</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>PiB</var>
+						<var>Pi</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>EnB</var>
+						<var>EN</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>GcB</var>
+						<var>GC</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>SosB</var>
+						<var>SOS</var>
+					</eq>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>GUI</var>
+					<eq>
+						<var>SolB</var>
+						<var>SOL</var>
+					</eq>
 				</imp>
 			</rule>
 		</constraints>
