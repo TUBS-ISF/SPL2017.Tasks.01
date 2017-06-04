@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="Tan.aj|AngleOps.aj|SubB.aj|Roots.aj|SosB.aj|OpKey.aj|Pow2B.aj|EnB.aj|Pi.aj|GUI.aj|CosB.aj|AC.aj|MUL.aj|EN.aj|P2O.aj|SinB.aj|AngleBut.aj|BaseBut.aj|Sin.aj|MulB.aj|Pow3B.aj|ScKeys.aj|BaseKeys.aj|Root3.aj|TanB.aj|GcB.aj|PiB.aj|Root3B.aj|P3O.aj|SC.aj|DivB.aj|Numbers.aj|PowerBut.aj|Potencies.aj|GC.aj|Pow4B.aj|RootBut.aj|Cos.aj|Sqrt.aj|P4O.aj|Del.aj|Root2B.aj|DIV.aj|SOL.aj|Equals.aj|SolB.aj|SOS.aj|AddB.aj|Display.aj" kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
