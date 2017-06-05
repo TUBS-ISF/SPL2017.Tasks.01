@@ -10,5 +10,15 @@ public aspect Cos {
 //			proceed(op, param1,param2,solution); 
 //		}
 //	}
+	
+	before(): execution(void CalculationController.calculateOp()){
+		calcSolution(); 
+	}
+	
+	private void calcSolution(){
+		double param1 = CalculationController.getInstance().getParam1();
+		double result =  Math.cos(param1) ; 
+		CalculationController.getInstance().setSolution("COS", result);
+	}
 
 }

@@ -10,4 +10,15 @@ public aspect MUL {
 //			proceed(op, param1,param2,solution); 
 //		}
 //	}
+	
+	before(): execution(void CalculationController.calculateOp()){
+		calcSolution(); 
+	}
+	
+	private void calcSolution(){
+		double param1 = CalculationController.getInstance().getParam1();
+		double param2 = CalculationController.getInstance().getParam2(); 
+		double result =  param1 * param2 ; 
+		CalculationController.getInstance().setSolution("MUL", result);
+	}
 }

@@ -13,4 +13,18 @@ public aspect Sqrt {
 //			}
 //	}
 //	}
+	
+	before(): execution(void CalculationController.calculateOp()){
+		calcSolution(); 
+	}
+	
+	private void calcSolution(){
+		double param1 = CalculationController.getInstance().getParam1();
+		double result = 0.0; 
+		if(param1 >= 0){
+			result = Math.sqrt(param1) ;
+		}
+		 
+		CalculationController.getInstance().setSolution("ROOT2", result);
+	}
 }

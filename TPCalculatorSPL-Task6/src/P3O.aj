@@ -10,4 +10,14 @@ public aspect P3O {
 //			proceed(op, param1,param2,solution); 
 //		}
 //	}
+	
+	before(): execution(void CalculationController.calculateOp()){
+		calcSolution(); 
+	}
+	
+	private void calcSolution(){
+		double param1 = CalculationController.getInstance().getParam1();
+		double result =  Math.pow(param1, 3); 
+		CalculationController.getInstance().setSolution("POW3", result);
+	}
 }

@@ -13,4 +13,20 @@ public aspect DIV {
 //			}
 //		}
 //	}
+	
+	
+	before(): execution(void CalculationController.calculateOp()){
+		calcSolution(); 
+	}
+	
+	private void calcSolution(){
+		double param1 = CalculationController.getInstance().getParam1();
+		double param2 = CalculationController.getInstance().getParam2();
+		double result = 0;
+		if(param2 != 0){
+			result = param1 / param2; 
+		}
+		 
+		CalculationController.getInstance().setSolution("DIV", result);
+	}
 }

@@ -13,4 +13,17 @@ public aspect Root3 {
 //			}
 //		}
 //	}
+	
+	before(): execution(void CalculationController.calculateOp()){
+		calcSolution(); 
+	}
+	
+	private void calcSolution(){
+		double param1 = CalculationController.getInstance().getParam1();
+		double result = 0;
+		if(param1 >= 0){
+			result = Math.pow(param1, (1.0/3.0));
+		}
+		CalculationController.getInstance().setSolution("ROOT3", result);
+	}
 }
